@@ -37,6 +37,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
                     StartupDialog startupDialog = new StartupDialog();
                     startupDialog.Show();
                 }
+                else
+                    MainWindow.Current.Start();
             });
         }
 

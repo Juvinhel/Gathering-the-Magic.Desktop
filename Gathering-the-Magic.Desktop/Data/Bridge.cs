@@ -13,20 +13,33 @@ namespace Gathering_the_Magic.DeckEdit.Data
     [ComVisible(true)]
     sealed public class Bridge
     {
-        public SaveResult SaveDeck()
+        public string ShowSaveDeck()
         {
             string filePath = MainWindow.Current.SaveDeck();
-            if (string.IsNullOrEmpty(filePath)) return null;
-            return new SaveResult(filePath);
+            filePath = filePath?.Replace("\\", "/");
+            return filePath;
         }
 
-        public LoadResult LoadDeck()
+        public string ShowOpenDeck()
         {
             string filePath = MainWindow.Current.LoadDeck();
-            if (string.IsNullOrEmpty(filePath)) return null;
-            return new LoadResult(filePath);
+            filePath = filePath?.Replace("\\", "/");
+            return filePath;
         }
 
+        public void DoSaveDeck(string _filePath, string _text)
+        {
+            _filePath = _filePath.Replace("/", "\\");
+            File.WriteAllText(_filePath, _text);
+        }
+
+        public string DoOpenDeck(string _filePath)
+        {
+            _filePath = _filePath.Replace("/", "\\");
+            return File.ReadAllText(_filePath);
+        }
+
+        //TODO: refactor
         public LoadResult[] LoadCollections()
         {
             IEnumerable<string> filePaths = MainWindow.Current.LoadCollections();
@@ -61,20 +74,21 @@ namespace Gathering_the_Magic.DeckEdit.Data
     {
         public SaveResult(string _filePath)
         {
-            filePath = _filePath;
-            Name = Path.GetFileNameWithoutExtension(filePath);
-            Extension = Path.GetExtension(filePath).TrimStart(".");
-            Exists = File.Exists(filePath);
+            fullPath = _filePath;
+            Name = Path.GetFileNameWithoutExtension(fullPath);
+            Extension = Path.GetExtension(fullPath).TrimStart(".");
+            Exists = File.Exists(fullPath);
         }
 
-        private string filePath;
+        private string fullPath;
+        public string FilePath { get { return fullPath; } }
         public string Name { get; private set; }
         public string Extension { get; private set; }
         public bool Exists { get; private set; }
 
         public void Save(string _text)
         {
-            File.WriteAllText(filePath, _text);
+            File.WriteAllText(fullPath, _text);
         }
     }
 
@@ -84,20 +98,21 @@ namespace Gathering_the_Magic.DeckEdit.Data
     {
         public LoadResult(string _filePath)
         {
-            filePath = _filePath;
-            Name = Path.GetFileNameWithoutExtension(filePath);
-            Extension = Path.GetExtension(filePath).TrimStart(".").ToLower();
-            LastModified = File.GetInfo(filePath).LastWriteTimeUtc.ToString("o");
+            fullPath = _filePath;
+            Name = Path.GetFileNameWithoutExtension(fullPath);
+            Extension = Path.GetExtension(fullPath).TrimStart(".").ToLower();
+            LastModified = File.GetInfo(fullPath).LastWriteTimeUtc.ToString("o");
         }
 
-        private string filePath;
+        private string fullPath;
+        public string FilePath { get { return fullPath; } }
         public string Name { get; private set; }
         public string Extension { get; private set; }
         public string LastModified { get; private set; }
 
         public string Load()
         {
-            return File.ReadAllText(filePath);
+            return File.ReadAllText(fullPath);
         }
     }
 }
