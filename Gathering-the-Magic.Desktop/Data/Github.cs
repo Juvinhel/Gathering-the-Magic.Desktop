@@ -20,13 +20,11 @@ namespace Gathering_the_Magic.DeckEdit.Data
             }
         }
 
-        static private string githubUser = "Juvinhel";
-        static private string githubRepo = "Gathering-the-Magic.Web";
         static public HttpClient Client { get; set; }
 
-        static public async Task<ReleaseInfo> GetLatestRelease()
+        static public async Task<ReleaseInfo> GetLatestRelease(string _githubUser, string _githubRepo)
         {
-            string url = $"https://api.github.com/repos/{githubUser}/{githubRepo}/releases/latest";
+            string url = $"https://api.github.com/repos/{_githubUser}/{_githubRepo}/releases/latest";
             using HttpResponseMessage response = await Client.GetAsync(url);
             string content = await response.Content.ReadAsStringAsync();
             return ReleaseInfo.Parse(content);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -34,12 +35,32 @@ namespace Gathering_the_Magic.DeckEdit.UI
 
         private async void startupDialog_Loaded(object _sender, RoutedEventArgs _e)
         {
+            #region check core
+            Version currentCoreVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            ReleaseInfo latestCoreRelease = await Github.GetLatestRelease("Juvinhel", "Gathering-the-Magic");
+            if (currentCoreVersion < latestCoreRelease.Version)
+            {
+                MessageBox.Show(
+                    $"A new version of the core application is available (v{latestCoreRelease.Version}).\nYou are currently using v{currentCoreVersion}.\n\nPlease update the core application first before using the web application.\n\nDo you want to open the download page now?",
+                    "Update Required",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                Process.Start(new ProcessStartInfo()
+                {
+                    FileName = "https://github.com/Juvinhel/Gathering-the-Magic/releases/latest",
+                    UseShellExecute = true
+                });
+                Application.Current.Shutdown();
+                return;
+            }
+            #endregion
+
             repositoryFolderHeader.FolderPath = Config.Current.RepositoryFolderPath;
 
             if (File.Exists(StartUp.VersionFilePath))
                 localVersion = Version.Parse(File.ReadAllText(StartUp.VersionFilePath));
 
-            latestRelease = await Github.GetLatestRelease();
+            latestRelease = await Github.GetLatestRelease("Juvinhel", "Gathering-the-Magic.Web");
 
             oldVersionTextBlock.Text = localVersion == null ? "Not Installed" : $"Installed Version: v{localVersion}";
             newVersionTextBlock.Text = $"Online Version: v{latestRelease.Version}";
