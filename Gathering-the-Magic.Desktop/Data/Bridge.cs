@@ -49,7 +49,8 @@ namespace Gathering_the_Magic.DeckEdit.Data
 
         public LoadResult[] LoadDefaultCollections()
         {
-            string collectionsFolderPath = Path.Combine(Config.Current.RepositoryFolderPath, "Collections");
+            string repositoryFolderPath = string.IsNullOrWhiteSpace(Config.Current.RepositoryFolderPath) ? Directory.Current : Config.Current.RepositoryFolderPath;
+            string collectionsFolderPath = Path.Combine(repositoryFolderPath, "Collections");
             if (!Directory.Exists(collectionsFolderPath)) return null;
 
             IEnumerable<string> filePaths = Directory.GetFiles(collectionsFolderPath, "csv");

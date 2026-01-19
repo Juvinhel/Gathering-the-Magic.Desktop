@@ -55,7 +55,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
             }
             #endregion
 
-            repositoryFolderHeader.FolderPath = Config.Current.RepositoryFolderPath;
+            string repositoryFolderPath = string.IsNullOrWhiteSpace(Config.Current.RepositoryFolderPath) ? Directory.Current : Config.Current.RepositoryFolderPath;
+            repositoryFolderHeader.FolderPath = repositoryFolderPath;
 
             if (File.Exists(StartUp.VersionFilePath))
                 localVersion = Version.Parse(File.ReadAllText(StartUp.VersionFilePath));

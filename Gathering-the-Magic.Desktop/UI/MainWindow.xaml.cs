@@ -142,8 +142,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
         };
         public string SaveDeck()
         {
-            if (!string.IsNullOrEmpty(Config.Current.RepositoryFolderPath))
-                saveFileDialog.InitialFolderPath = Config.Current.RepositoryFolderPath;
+            string repositoryFolderPath = string.IsNullOrWhiteSpace(Config.Current.RepositoryFolderPath) ? Directory.Current : Config.Current.RepositoryFolderPath;
+            saveFileDialog.InitialFolderPath = repositoryFolderPath;
 
             string result = null;
             webView.Visibility = Visibility.Hidden;
@@ -174,8 +174,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
         };
         public string LoadDeck()
         {
-            if (!string.IsNullOrEmpty(Config.Current.RepositoryFolderPath))
-                openDeckFileDialog.InitialFolderPath = Config.Current.RepositoryFolderPath;
+            string repositoryFolderPath = string.IsNullOrWhiteSpace(Config.Current.RepositoryFolderPath) ? Directory.Current : Config.Current.RepositoryFolderPath;
+            openDeckFileDialog.InitialFolderPath = repositoryFolderPath;
 
             string result = default;
             webView.Visibility = Visibility.Hidden;
@@ -197,8 +197,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
         };
         public IEnumerable<string> LoadCollections()
         {
-            if (!string.IsNullOrEmpty(Config.Current.RepositoryFolderPath))
-                openCollectionFileDialog.InitialFolderPath = Config.Current.RepositoryFolderPath;
+            string repositoryFolderPath = string.IsNullOrWhiteSpace(Config.Current.RepositoryFolderPath) ? Directory.Current : Config.Current.RepositoryFolderPath;
+            openCollectionFileDialog.InitialFolderPath = repositoryFolderPath;
             List<string> result = default;
             webView.Visibility = Visibility.Hidden;
             if (!string.IsNullOrEmpty(openCollectionFileDialog.ShowDialog()))
