@@ -66,14 +66,23 @@ namespace Gathering_the_Magic.DeckEdit.UI
             oldVersionTextBlock.Text = localVersion == null ? "Not Installed" : $"Installed Version: v{localVersion}";
             newVersionTextBlock.Text = $"Online Version: v{latestRelease.Version}";
 
-            if (localVersion != null)
+
+            if (Debugger.IsAttached)
+            {
                 startAppGrid.Visibility = Visibility.Visible;
+                (startUpdateHyperLink.Parent as TextBlock).Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                if (localVersion != null)
+                    startAppGrid.Visibility = Visibility.Visible;
 
-            if (localVersion == null)
-                startUpdateTextBlock.Text = "Install App";
+                if (localVersion == null)
+                    startUpdateTextBlock.Text = "Install App";
 
-            if (localVersion == latestRelease.Version)
-                startUpdateTextBlock.Text = "Repair App";
+                if (localVersion == latestRelease.Version)
+                    startUpdateTextBlock.Text = "Repair App";
+            }
         }
 
         private void startAllButton_Click(object _sender, RoutedEventArgs _e)

@@ -133,7 +133,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
         {
             Filters =
             {
-                new FilterViewModel("YAML Deck", "YAML Deck format", new WildcardMatcher("*.yaml") | new WildcardMatcher("*.yml"), true),
+                new FilterViewModel("IDEC Deck", "IDEC Deck format", new WildcardMatcher("*.idec")),
+                new FilterViewModel("YAML Deck", "YAML Deck format", new WildcardMatcher("*.yaml") | new WildcardMatcher("*.yml")),
                 new FilterViewModel("JSON Deck", "JSON Deck format", new WildcardMatcher("*.json")),
                 new FilterViewModel("DEC Deck", "DEC Deck format", new WildcardMatcher("*.dec")),
                 new FilterViewModel("TXT Deck", "TXT Deck format", new WildcardMatcher("*.txt")),
@@ -150,7 +151,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
             if (!string.IsNullOrEmpty(saveFileDialog.ShowDialog()))
             {
                 result = saveFileDialog.SelectedFilePath;
-                if (saveFileDialog.SelectedFilter.Name == "*" && !result.ToLower().EndsWithAny(".yaml", ".yml")) result += ".yaml";
+                if (saveFileDialog.SelectedFilter.Name == "*" && !result.ToLower().EndsWithAny(".idec", ".yaml", ".yml", ".json", ".dec", ".txt", ".cod")) result += ".idec";
+                if (saveFileDialog.SelectedFilter.Name == "IDEC Deck" && !result.ToLower().EndsWithAny(".idec")) result += ".idec";
                 if (saveFileDialog.SelectedFilter.Name == "YAML Deck" && !result.ToLower().EndsWithAny(".yaml", ".yml")) result += ".yaml";
                 if (saveFileDialog.SelectedFilter.Name == "JSON Deck" && !result.ToLower().EndsWithAny(".json")) result += ".json";
                 if (saveFileDialog.SelectedFilter.Name == "DEC Deck" && !result.ToLower().EndsWithAny(".dec")) result += ".dec";
@@ -165,7 +167,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
         private OpenFileDialog openDeckFileDialog = new OpenFileDialog()
         {
             Filters = {
-                new FilterViewModel("YAML Deck", "YAML Deck format", new WildcardMatcher("*.yaml") | new WildcardMatcher("*.yml"), true),
+                new FilterViewModel("IDEC Deck", "IDEC Deck format", new WildcardMatcher("*.idec")),
+                new FilterViewModel("YAML Deck", "YAML Deck format", new WildcardMatcher("*.yaml") | new WildcardMatcher("*.yml")),
                 new FilterViewModel("JSON Deck", "JSON Deck format", new WildcardMatcher("*.json")),
                 new FilterViewModel("DEC Deck", "DEC Deck format", new WildcardMatcher("*.dec")),
                 new FilterViewModel("TXT Deck", "TXT Deck format", new WildcardMatcher("*.txt")),
