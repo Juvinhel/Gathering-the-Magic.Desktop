@@ -30,9 +30,6 @@ namespace Gathering_the_Magic.DeckEdit.UI
                 await beginUpdate();
 
                 Close();
-
-                StartupDialog startupDialog = new StartupDialog();
-                startupDialog.Show();
             }
             catch (Exception ex)
             {

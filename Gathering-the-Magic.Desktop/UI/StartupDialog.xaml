@@ -75,21 +75,23 @@
             Visibility="Hidden">
             <Button
                 x:Name="startAllButton"
-                Grid.Row="1000"
                 Click="startAllButton_Click"
                 Content="Start Full Editor"
                 FontSize="16" />
             <Button
                 x:Name="startWorkbenchButton"
-                Grid.Row="1000"
                 Click="startWorkbenchButton_Click"
                 Content="Start Workbench only"
                 FontSize="16" />
             <Button
                 x:Name="startLibraryButton"
-                Grid.Row="1000"
                 Click="startLibraryButton_Click"
                 Content="Start Library only"
+                FontSize="16" />
+            <Button
+                x:Name="startShelveButton"
+                Click="startShelveButton_Click"
+                Content="Start Shelve"
                 FontSize="16" />
         </UniformGrid>
     </Grid>

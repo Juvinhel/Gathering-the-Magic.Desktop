@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
@@ -35,6 +36,11 @@ namespace Gathering_the_Magic.DeckEdit.UI
 
         private async void startupDialog_Loaded(object _sender, RoutedEventArgs _e)
         {
+            await Refresh();
+        }
+
+        public async Task Refresh()
+        {
             #region check core
             Version currentCoreVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             ReleaseInfo latestCoreRelease = await Github.GetLatestRelease("Juvinhel", "Gathering-the-Magic");
@@ -66,43 +72,39 @@ namespace Gathering_the_Magic.DeckEdit.UI
             oldVersionTextBlock.Text = localVersion == null ? "Not Installed" : $"Installed Version: v{localVersion}";
             newVersionTextBlock.Text = $"Online Version: v{latestRelease.Version}";
 
+            if (localVersion == null)
+                startUpdateTextBlock.Text = "Install App";
+
+            if (localVersion == latestRelease.Version)
+                startUpdateTextBlock.Text = "Repair App";
 
             if (Debugger.IsAttached)
-            {
                 startAppGrid.Visibility = Visibility.Visible;
-                (startUpdateHyperLink.Parent as TextBlock).Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                if (localVersion != null)
-                    startAppGrid.Visibility = Visibility.Visible;
-
-                if (localVersion == null)
-                    startUpdateTextBlock.Text = "Install App";
-
-                if (localVersion == latestRelease.Version)
-                    startUpdateTextBlock.Text = "Repair App";
-            }
+            else if (localVersion != null)
+                startAppGrid.Visibility = Visibility.Visible;
         }
 
         private void startAllButton_Click(object _sender, RoutedEventArgs _e)
         {
             StartUp.UI = UIMode.All;
-            MainWindow.Current.Start();
             Close();
         }
 
         private void startWorkbenchButton_Click(object _sender, RoutedEventArgs _e)
         {
             StartUp.UI = UIMode.Workbench;
-            MainWindow.Current.Start();
             Close();
         }
 
         private void startLibraryButton_Click(object _sender, RoutedEventArgs _e)
         {
             StartUp.UI = UIMode.Library;
-            MainWindow.Current.Start();
+            Close();
+        }
+
+        private void startShelveButton_Click(object _sender, RoutedEventArgs _e)
+        {
+            StartUp.UI = UIMode.Shelve;
             Close();
         }
 
@@ -115,11 +117,12 @@ namespace Gathering_the_Magic.DeckEdit.UI
             }
         }
 
-        private void startUpdateHyperLink_Click(object _sender, RoutedEventArgs _e)
+        private async void startUpdateHyperLink_Click(object _sender, RoutedEventArgs _e)
         {
-            Close();
             UpdateSplash updateSplash = new UpdateSplash(localVersion, latestRelease);
-            updateSplash.Show();
+            updateSplash.ShowDialog();
+
+            await Refresh();
         }
     }
 }

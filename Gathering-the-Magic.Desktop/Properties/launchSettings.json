@@ -1,15 +1,24 @@
 {
-  "profiles": {
-    "Default": {
-      "commandName": "Project"
-    },
-    "Workbench": {
-      "commandName": "Project",
-      "commandLineArgs": "--ui workbench"
-    },
-    "Library": {
-      "commandName": "Project",
-      "commandLineArgs": "--ui library"
+    "profiles":
+    {
+        "Default":
+        {
+            "commandName": "Project"
+        },
+        "Workbench":
+        {
+            "commandName": "Project",
+            "commandLineArgs": "--ui workbench"
+        },
+        "Library":
+        {
+            "commandName": "Project",
+            "commandLineArgs": "--ui library"
+        },
+        "Shelve":
+        {
+            "commandName": "Project",
+            "commandLineArgs": "--ui shelve"
+        }
     }
-  }
 }

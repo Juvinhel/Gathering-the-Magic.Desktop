@@ -32,14 +32,6 @@
                     FontWeight="SemiBold"
                     Foreground="White"
                     Text="Gathering-the-Magic.Desktop" />
-                <TextBlock DockPanel.Dock="Left" Text=" " />
-                <TextBlock
-                    x:Name="openFileTextBlock"
-                    VerticalAlignment="Center"
-                    DockPanel.Dock="Left"
-                    FontSize="18"
-                    Foreground="White"
-                    Text="" />
             </DockPanel>
         </DataTemplate>
     </mahapps:MetroWindow.TitleTemplate>
@@ -48,7 +40,5 @@
             <celestial.components:ErrorWindowButton />
         </mahapps:WindowCommands>
     </mahapps:MetroWindow.RightWindowCommands>
-    <Grid x:Name="mainGrid">
-        <wv2:WebView2 x:Name="webView" />
-    </Grid>
+    <Border x:Name="mainContent" />
 </mahapps:MetroWindow>

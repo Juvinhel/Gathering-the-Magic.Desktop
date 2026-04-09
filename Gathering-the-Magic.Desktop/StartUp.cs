@@ -60,6 +60,7 @@ namespace Gathering_the_Magic.DeckEdit
     {
         All,
         Workbench,
-        Library
+        Library,
+        Shelve
     }
 }

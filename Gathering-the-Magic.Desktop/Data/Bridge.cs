@@ -15,14 +15,14 @@ namespace Gathering_the_Magic.DeckEdit.Data
     {
         public string ShowSaveDeck()
         {
-            string filePath = MainWindow.Current.SaveDeck();
+            string filePath = SaveLoad.SaveDeck();
             filePath = filePath?.Replace("\\", "/");
             return filePath;
         }
 
         public string ShowOpenDeck()
         {
-            string filePath = MainWindow.Current.LoadDeck();
+            string filePath = SaveLoad.LoadDeck();
             filePath = filePath?.Replace("\\", "/");
             return filePath;
         }
@@ -42,7 +42,7 @@ namespace Gathering_the_Magic.DeckEdit.Data
         //TODO: refactor
         public LoadResult[] LoadCollections()
         {
-            IEnumerable<string> filePaths = MainWindow.Current.LoadCollections();
+            IEnumerable<string> filePaths = SaveLoad.LoadCollections();
             if (filePaths == null) return null;
             return filePaths.Select(filePath => new LoadResult(filePath)).ToArray();
         }
