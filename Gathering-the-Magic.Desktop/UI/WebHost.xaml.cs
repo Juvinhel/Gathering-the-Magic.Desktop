@@ -55,8 +55,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
                 case UIMode.Library:
                     page = "library.html";
                     break;
-                case UIMode.Shelve:
-                    page = "shelve.html";
+                case UIMode.Shelf:
+                    page = "shelf.html";
                     break;
             }
 

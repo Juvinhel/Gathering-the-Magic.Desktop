@@ -89,9 +89,9 @@
                 Content="Start Library only"
                 FontSize="16" />
             <Button
-                x:Name="startShelveButton"
-                Click="startShelveButton_Click"
-                Content="Start Shelve"
+                x:Name="startShelfButton"
+                Click="startShelfButton_Click"
+                Content="Start Shelf"
                 FontSize="16" />
         </UniformGrid>
     </Grid>

@@ -15,10 +15,10 @@
             "commandName": "Project",
             "commandLineArgs": "--ui library"
         },
-        "Shelve":
+        "Shelf":
         {
             "commandName": "Project",
-            "commandLineArgs": "--ui shelve"
+            "commandLineArgs": "--ui shelf"
         }
     }
 }

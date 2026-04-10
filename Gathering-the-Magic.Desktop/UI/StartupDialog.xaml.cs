@@ -102,9 +102,9 @@ namespace Gathering_the_Magic.DeckEdit.UI
             Close();
         }
 
-        private void startShelveButton_Click(object _sender, RoutedEventArgs _e)
+        private void startShelfButton_Click(object _sender, RoutedEventArgs _e)
         {
-            StartUp.UI = UIMode.Shelve;
+            StartUp.UI = UIMode.Shelf;
             Close();
         }
 
