@@ -139,6 +139,7 @@ namespace Gathering_the_Magic.DeckEdit.UI
             string path = _url.Path;
             string virtualPath = path.Substring("repository".Length).TrimStart("/");
             string decodedPath = WebUtility.UrlDecode(virtualPath);
+            if (decodedPath.Split("/").Any(x => x.StartsWith("."))) return (null, null); // prevent access to parent folders and hidden folders
 
             string localPath = Path.Combine(Config.Current.RepositoryFolderPath, decodedPath);
             string fileName = Path.GetFileName(localPath);

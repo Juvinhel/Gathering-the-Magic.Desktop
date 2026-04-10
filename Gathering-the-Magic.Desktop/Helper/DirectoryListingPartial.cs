@@ -39,7 +39,11 @@ namespace Gathering_the_Magic.DeckEdit.Helper
             get
             {
                 foreach (string folderPath in Directory.GetDirectories(FolderPath, false))
+                {
+                    string folderName = Path.GetFileName(folderPath);
+                    if (folderName.StartsWith(".")) continue; // skip hidden folders
                     yield return GetFolder(folderPath);
+                }
             }
         }
 
@@ -48,7 +52,11 @@ namespace Gathering_the_Magic.DeckEdit.Helper
             get
             {
                 foreach (string filePath in Directory.GetFiles(FolderPath, false))
+                {
+                    string fileName = Path.GetFileName(filePath);
+                    if (fileName.StartsWith(".")) continue; // skip hidden files
                     yield return GetFile(filePath);
+                }
             }
         }
 
