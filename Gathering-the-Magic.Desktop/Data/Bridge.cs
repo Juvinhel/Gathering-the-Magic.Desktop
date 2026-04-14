@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Gathering_the_Magic.DeckEdit.UI;
-using WinCopies.Util;
 
 namespace Gathering_the_Magic.DeckEdit.Data
 {
@@ -66,6 +65,77 @@ namespace Gathering_the_Magic.DeckEdit.Data
         public void SaveConfig(string _text)
         {
             File.WriteAllText(configFilePath, _text);
+        }
+
+        public string[] GetFolders(string _path)
+        {
+            string fullPath = getFullPath(_path);
+            return Directory.GetDirectories(fullPath, false).
+                Select(x => this.getRelativePath(x)).
+                Where(x => x != null).
+                Select(x => x + "/").
+                ToArray();
+        }
+
+        public string[] GetFiles(string _path)
+        {
+            string fullPath = getFullPath(_path);
+            return Directory.GetFiles(fullPath, false).
+                Select(x => this.getRelativePath(x)).
+                Where(x => x != null).
+                ToArray();
+        }
+
+        public byte[] ReadFile(string _path)
+        {
+            string fullPath = getFullPath(_path);
+            return File.ReadAllBytes(fullPath);
+        }
+
+        public void WriteFile(string _path, object[] _data)
+        {
+            byte[] bytes = new byte[_data.Length];
+            for (int i = 0; i < bytes.Length; i++) bytes[i] = Convert.ToByte(_data[i]);
+            string fullPath = getFullPath(_path);
+            File.WriteAllBytes(fullPath, bytes);
+        }
+
+        public void DeleteFile(string _path)
+        {
+            string fullPath = getFullPath(_path);
+            File.Delete(fullPath);
+        }
+
+        public void CreateFolder(string _path)
+        {
+            string fullPath = getFullPath(_path);
+            Directory.Create(fullPath);
+        }
+
+        public void DeleteFolder(string _path)
+        {
+            string fullPath = getFullPath(_path);
+            Directory.Delete(fullPath);
+        }
+
+        private string getFullPath(string _path)
+        {
+            _path = _path.Replace("/", "\\");
+            List<string> parts = _path.Split("\\").Where(x => !string.IsNullOrEmpty(x)).ToList();
+            if (parts.Any(x => x.StartsWith("."))) throw new Exception("Hidden files and folders are not accessible!");
+            _path = parts.Combine("/");
+
+            string fullPath = Path.Combine(Config.Current.RepositoryFolderPath, _path);
+            if (!Path.MakeRooted(fullPath).StartsWith(Path.MakeRooted(Config.Current.RepositoryFolderPath))) throw new Exception("Access Denied!");
+            return fullPath;
+        }
+
+        private string getRelativePath(string _fullPath)
+        {
+            string path = Path.MakeRelative(Config.Current.RepositoryFolderPath, _fullPath).Replace("\\", "/").Trim("/");
+            if (path.Split("/").Any(x => x.StartsWith("."))) return null; // hidden folder or file
+
+            return "/" + path;
         }
     }
 
