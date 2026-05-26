@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,8 @@ namespace Gathering_the_Magic.Desktop.Data
         {
             string url = $"https://api.github.com/repos/{_githubUser}/{_githubRepo}/releases/latest";
             using HttpResponseMessage response = await Client.GetAsync(url);
+            if (response.StatusCode == HttpStatusCode.NotFound) return null;
+
             string content = await response.Content.ReadAsStringAsync();
             return ReleaseInfo.Parse(content);
         }

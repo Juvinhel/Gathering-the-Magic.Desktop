@@ -21,7 +21,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 namespace Gathering_the_Magic.Desktop.UI
 {
     /// <summary>
-    /// Interaktionslogik für ConfigDialog.xaml
+    /// Interaktionslogik für StartupDialog.xaml
     /// </summary>
     public partial class StartupDialog
     {
@@ -43,8 +43,8 @@ namespace Gathering_the_Magic.Desktop.UI
         {
             #region check core
             Version currentCoreVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            ReleaseInfo latestCoreRelease = await Github.GetLatestRelease("Juvinhel", "Gathering-the-Magic");
-            if (currentCoreVersion < latestCoreRelease.Version)
+            ReleaseInfo latestCoreRelease = await Github.GetLatestRelease("Juvinhel", "Gathering-the-Magic.Desktop");
+            if (latestCoreRelease != null && currentCoreVersion < latestCoreRelease.Version)
             {
                 MessageBox.Show(
                     $"A new version of the core application is available (v{latestCoreRelease.Version}).\nYou are currently using v{currentCoreVersion}.\n\nPlease update the core application first before using the web application.\n\nDo you want to open the download page now?",
