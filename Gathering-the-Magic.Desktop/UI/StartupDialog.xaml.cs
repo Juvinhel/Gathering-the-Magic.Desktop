@@ -41,13 +41,13 @@ namespace Gathering_the_Magic.Desktop.UI
 
         public async Task Refresh()
         {
-            #region check core
-            Version currentCoreVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            ReleaseInfo latestCoreRelease = await Github.GetLatestRelease("Juvinhel", "Gathering-the-Magic.Desktop");
-            if (latestCoreRelease != null && currentCoreVersion < latestCoreRelease.Version)
+            #region check desktop
+            Version currentDesktopVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            ReleaseInfo latestDesktopRelease = await Github.GetLatestRelease("Juvinhel", "Gathering-the-Magic.Desktop");
+            if (latestDesktopRelease != null && currentDesktopVersion < latestDesktopRelease.Version)
             {
                 MessageBox.Show(
-                    $"A new version of the core application is available (v{latestCoreRelease.Version}).\nYou are currently using v{currentCoreVersion}.\n\nPlease update the core application first before using the web application.\n\nDo you want to open the download page now?",
+                    $"A new version of the desktop application is available (v{latestDesktopRelease.Version}).\nYou are currently using v{currentDesktopVersion}.\n\nPlease update the desktop application first before using the web application.\n\nDo you want to open the download page now?",
                     "Update Required",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
