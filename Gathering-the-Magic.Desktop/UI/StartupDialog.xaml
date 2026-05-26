@@ -1,11 +1,10 @@
 ﻿<celestial.controls:AdornerDialog
-    x:Class="Gathering_the_Magic.DeckEdit.UI.StartupDialog"
+    x:Class="Gathering_the_Magic.Desktop.UI.StartupDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:celestial.components="clr-namespace:Celestial.Components;assembly=Celestial"
     xmlns:celestial.controls="clr-namespace:Celestial.Controls;assembly=Celestial"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Gathering_the_Magic.DeckEdit.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Padding="20"
     d:DesignHeight="450"

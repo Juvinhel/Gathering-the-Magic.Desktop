@@ -4,9 +4,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Gathering_the_Magic.DeckEdit.UI;
+using Gathering_the_Magic.Desktop.UI;
 
-namespace Gathering_the_Magic.DeckEdit.Data
+namespace Gathering_the_Magic.Desktop.Data
 {
     [ClassInterface(ClassInterfaceType.AutoDual)]
     [ComVisible(true)]

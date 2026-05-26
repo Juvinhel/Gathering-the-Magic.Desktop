@@ -15,10 +15,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Gathering_the_Magic.DeckEdit.Data;
+using Gathering_the_Magic.Desktop.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace Gathering_the_Magic.DeckEdit.UI
+namespace Gathering_the_Magic.Desktop.UI
 {
     /// <summary>
     /// Interaktionslogik für ConfigDialog.xaml

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using Celestial;
 using Celestial.Components;
-using Gathering_the_Magic.DeckEdit.UI;
+using Gathering_the_Magic.Desktop.UI;
 using Lemon.Text.Matching;
 using Microsoft.Web.WebView2.Wpf;
 
-namespace Gathering_the_Magic.DeckEdit.Data
+namespace Gathering_the_Magic.Desktop.Data
 {
     static public class SaveLoad
     {

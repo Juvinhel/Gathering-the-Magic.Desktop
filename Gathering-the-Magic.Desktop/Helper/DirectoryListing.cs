@@ -7,7 +7,7 @@
 //     der Code neu generiert wird.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Gathering_the_Magic.DeckEdit.Helper
+namespace Gathering_the_Magic.Desktop.Helper
 {
     using System.Linq;
     using System.Text;
@@ -20,7 +20,7 @@ namespace Gathering_the_Magic.DeckEdit.Helper
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+    #line 1 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class DirectoryListing : DirectoryListingBase
     {
@@ -144,133 +144,133 @@ namespace Gathering_the_Magic.DeckEdit.Helper
                     "vHni+Hc719dej5oxggAIAAAIAIGyrGzd3Tr9P5JrNp8Zt4rCAAAAAElFTkSuQmCC);\r\n}\r\n</style>\r" +
                     "\n  </head>\r\n  <body class=\"directory\">\r\n    <div id=\"wrapper\">\r\n      ");
             
-            #line 288 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 288 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
  if(Parent.path != null) { 
             
             #line default
             #line hidden
             this.Write("      \r\n      <h1><a href=\"");
             
-            #line 289 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 289 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Parent.path));
             
             #line default
             #line hidden
             this.Write("\" class=\"icon icon-directory\" title=\"");
             
-            #line 289 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 289 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Parent.name));
             
             #line default
             #line hidden
             this.Write("\">~</a>");
             
-            #line 289 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 289 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Parent.name));
             
             #line default
             #line hidden
             this.Write("</h1>\r\n      ");
             
-            #line 290 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 290 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
  }
             
             #line default
             #line hidden
             this.Write("      <ul id=\"files\" class=\"view-tiles\">\r\n      ");
             
-            #line 292 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 292 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
  foreach(var folder in Folders) { 
             
             #line default
             #line hidden
             this.Write("         <li><a href=\"");
             
-            #line 293 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 293 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(folder.path));
             
             #line default
             #line hidden
             this.Write("\" class=\"icon icon-directory\" title=\"");
             
-            #line 293 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 293 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(folder.name));
             
             #line default
             #line hidden
             this.Write("\"><span class=\"name\">");
             
-            #line 293 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 293 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(folder.name));
             
             #line default
             #line hidden
             this.Write("</span>");
             
-            #line 293 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 293 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(folder.size));
             
             #line default
             #line hidden
             this.Write("<span class=\"size\"></span><span class=\"date\">");
             
-            #line 293 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 293 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(folder.lastWriteTime.ToString("o")));
             
             #line default
             #line hidden
             this.Write("</span></a></li>\r\n      ");
             
-            #line 294 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 294 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
  } 
             
             #line default
             #line hidden
             this.Write("      ");
             
-            #line 295 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 295 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
  foreach(var file in Files) { 
             
             #line default
             #line hidden
             this.Write("        <li><a href=\"");
             
-            #line 296 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 296 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(file.path));
             
             #line default
             #line hidden
             this.Write("\" class=\"icon\" title=\"");
             
-            #line 296 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 296 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(file.name));
             
             #line default
             #line hidden
             this.Write("\"><span class=\"name\">");
             
-            #line 296 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 296 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(file.name));
             
             #line default
             #line hidden
             this.Write("</span><span class=\"size\">");
             
-            #line 296 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 296 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(file.size));
             
             #line default
             #line hidden
             this.Write("</span><span class=\"date\">");
             
-            #line 296 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 296 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(file.lastWriteTime.ToString("o")));
             
             #line default
             #line hidden
             this.Write("</span></a></li>\r\n      ");
             
-            #line 297 "D:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
+            #line 297 "C:\Komachi\Development\Gathering-the-Magic.Desktop\Gathering-the-Magic.Desktop\Helper\DirectoryListing.tt"
  } 
             
             #line default

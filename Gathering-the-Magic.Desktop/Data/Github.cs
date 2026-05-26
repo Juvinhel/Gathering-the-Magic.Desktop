@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gathering_the_Magic.DeckEdit.Data
+namespace Gathering_the_Magic.Desktop.Data
 {
     static public class Github
     {

@@ -2,10 +2,10 @@
 using System.IO.Compression;
 using System.Net.Http;
 using System.Windows;
-using Gathering_the_Magic.DeckEdit.Data;
+using Gathering_the_Magic.Desktop.Data;
 using Newtonsoft.Json.Linq;
 
-namespace Gathering_the_Magic.DeckEdit.UI
+namespace Gathering_the_Magic.Desktop.UI
 {
     /// <summary>
     /// Interaktionslogik für UpdateSplash.xaml

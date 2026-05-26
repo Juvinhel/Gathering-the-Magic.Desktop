@@ -3,15 +3,15 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using Celestial.Components;
-using Gathering_the_Magic.DeckEdit.Data;
+using Gathering_the_Magic.Desktop.Data;
 using Lemon;
 using Lemon.Text.Matching;
 using Microsoft.Web.WebView2.Core;
 
-namespace Gathering_the_Magic.DeckEdit.UI
+namespace Gathering_the_Magic.Desktop.UI
 {
     /// <summary>
-    /// Interaktionslogik für DeckEditor.xaml
+    /// Interaktionslogik für WebHost.xaml
     /// </summary>
     public partial class WebHost
     {
@@ -23,7 +23,7 @@ namespace Gathering_the_Magic.DeckEdit.UI
 
         static public WebHost Current { get; private set; }
 
-        private void deckEditor_Loaded(object _sender, RoutedEventArgs _e)
+        private void webHost_Loaded(object _sender, RoutedEventArgs _e)
         {
             initWebView();
         }
