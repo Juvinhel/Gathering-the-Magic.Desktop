@@ -75,7 +75,7 @@ namespace Gathering_the_Magic.DeckEdit.UI
             progressBar.Maximum = totalSize;
             foreach (ZipArchiveEntry entry in archive.Entries)
             {
-                if (entry.FullName.EndsWith("/")) continue;
+                if (entry.FullName.EndsWith("\\")) continue;
 
                 string filePath = Path.Combine(StartUp.WebFolderPath, entry.FullName);
                 using (Stream fs = File.OpenCreate(filePath))
